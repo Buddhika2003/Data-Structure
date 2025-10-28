@@ -41,8 +41,46 @@ class Stack {
 
 
 
+
+class Queue {
+    private Node front, rear;
+
+    public Queue() {
+        front = rear = null;
+    }
+
+    public void enqueue(int data) {
+        Node newNode = new Node(data);
+        if (rear == null) {
+            front = rear = newNode;
+            return;
+        }
+        rear.next = newNode;
+        rear = newNode;
+    }
+
+    public int dequeue() {
+        if (front == null) {System.out.println("Queue Underflow");};
+        int value = front.data;
+        front = front.next;
+        if (front == null) rear = null;
+        return value;
+    }
+
+    public int peek() {
+        if (front == null){System.out.println("Queue is empty");};
+        return front.data;
+    }
+
+    public boolean isEmpty() {
+        return front == null;
+    }
+}
+
+
 class Main {
     public static void main(String[] args) {
+        //Stack
         System.out.println("_Stack_");
         Stack st = new Stack();
         st.push(50);
@@ -52,7 +90,15 @@ class Main {
         System.out.println("Popped: " + st.pop());      
         System.out.println("Top after pop: " + st.peek()); 
 
-        
+        //Queue
+        System.out.println("_Queue_");
+        Queue q1 = new Queue();
+        q1.enqueue(100);
+        q1.enqueue(200);
+        q1.enqueue(300);
+        System.out.println("Front element: " + q1.peek()); 
+        System.out.println("Dequeued: " + q1.dequeue());   
+        System.out.println("Front after dequeue: " + q1.peek()); 
     }
 }
 
