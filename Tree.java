@@ -1,0 +1,10 @@
+public class Tree{
+    int data;
+    Node left, right;
+
+    public Tree(int data){
+        this.data=data;
+        left=right=null;
+    }
+
+}
