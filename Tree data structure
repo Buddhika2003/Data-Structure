@@ -29,3 +29,28 @@ root=insertRec(root, data);
         return root;
     }
 }
+
+public void preorder() {
+        preorderRec(root);
+    }
+
+    private void preorderRec(Node root) {
+        if (root != null) {
+            System.out.print(root.data + " ");
+            preorderRec(root.left);
+            preorderRec(root.right);
+        }
+    }
+
+public void postorder() {
+        postorderRec(root);
+    }
+
+    private void postorderRec(Node root) {
+        if (root != null) {
+            postorderRec(root.left);
+            postorderRec(root.right);
+            System.out.print(root.data + " ");
+        }
+    }
+}
